@@ -13,19 +13,19 @@ function Login() {
           name="identifier"
           type="email"
           defaultValue="test@test.com"
-          label="email"
+          label="Email"
         />
         <FormInput
           name="password"
           type="password"
           defaultValue="secret"
-          label="password"
+          label="Password"
         />
         <div className="mt-4">
-          <SubmitBtn text="login" />
+          <SubmitBtn text="Login" />
         </div>
         <button type="button" className="btn btn-secondary btn-block mt-4">
-          guest user
+          Guest user
         </button>
         <p className="text-center mt-4">
           Not a member yet?
@@ -33,7 +33,7 @@ function Login() {
             to="/register"
             className="ml-2 link link-hover link-primary capitalize"
           >
-            register
+            Register
           </Link>
         </p>
       </Form>
