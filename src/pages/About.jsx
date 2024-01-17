@@ -7,7 +7,7 @@ function About() {
         </h1>
         <div className="stats bg-primary shadow">
           <div className="stat">
-            <div className="stat-title text-primary-content text-4xl font-bold tracking-widest">
+            <div className="stat-title text-primary-content text-4xl font-bold tracking-widest capitalize">
               comfy
             </div>
           </div>
