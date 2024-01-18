@@ -6,7 +6,6 @@ import { BsFillGridFill, BsList } from "react-icons/bs";
 
 function ProductsContainer() {
   const { meta } = useLoaderData();
-  console.log(meta);
 
   const totalProducts = meta.pagination.total;
   const [layout, setLayout] = useState("grid");
