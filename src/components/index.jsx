@@ -5,3 +5,6 @@ export { default as Navbar } from "./Navbar.jsx";
 export { default as NavLinks } from "./NavLinks.jsx";
 export { default as Hero } from "./Hero.jsx";
 export { default as ErrorElement } from "./ErrorElement.jsx";
+export { default as Filters } from "./Filters.jsx";
+export { default as PaginationContainer } from "./PaginationContainer.jsx";
+export { default as ProductsContainer } from "./ProductsContainer.jsx";
