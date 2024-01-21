@@ -38,7 +38,6 @@ function Login() {
       toast.success("welcome guest user");
       navigate("/");
     } catch (error) {
-      console.log(error);
       toast.error("guest user login error.please try later.");
     }
   };
