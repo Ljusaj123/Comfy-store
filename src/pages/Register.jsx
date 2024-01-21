@@ -32,19 +32,16 @@ function Register() {
           type="text"
           label="Username"
           name="username"
-          defaultValue="aaa"
         />
         <FormInput
           type="email"
           label="Email"
           name="email"
-          defaultValue="a@gmail.com"
         />
         <FormInput
           type="password"
           label="Password"
           name="password"
-          defaultValue="secret"
         />
         <div className="mt-4">
           <SubmitBtn text="Register" />
