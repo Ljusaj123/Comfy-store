@@ -5,11 +5,12 @@ import { toast } from "react-toastify";
 import { loginUser } from "../features/user/userSlice";
 import { useDispatch } from "react-redux";
 
-export const loginAction =
+const action =
   (store) =>
   async ({ request }) => {
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
+
     try {
       const response = await customFetch.post("/auth/local", data);
       store.dispatch(loginUser(response.data));
@@ -28,6 +29,7 @@ export const loginAction =
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const loginAsGuestUser = async () => {
     try {
       const response = await customFetch.post("/auth/local", {
@@ -41,10 +43,11 @@ function Login() {
       toast.error("guest user login error.please try later.");
     }
   };
+
   return (
     <section className="h-screen grid place-items-center">
       <Form
-        method="post"
+        method="POST"
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4'"
       >
         <h4 className="text-center text-3xl font-bold">Login</h4>
@@ -74,4 +77,5 @@ function Login() {
   );
 }
 
+Login.action = action;
 export default Login;

@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router-dom";
 import { customFetch, formatPrice } from "../utils";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
 
@@ -12,7 +11,8 @@ const singleProductQuery = (id) => {
     queryFn: () => customFetch.get(`/products/${id}`),
   };
 };
-export const singleProductLoader =
+
+const loader =
   (queryClient) =>
   async ({ params }) => {
     const response = await queryClient.ensureQueryData(
@@ -24,7 +24,6 @@ export const singleProductLoader =
 
 function SingleProduct() {
   const { product } = useLoaderData();
-
   const { image, title, price, description, colors, company } =
     product.attributes;
   const dollarsPrice = formatPrice(price);
@@ -108,7 +107,7 @@ function SingleProduct() {
                   amount
                 </h4>
               </label>
-              <select
+              <select // prominit
                 className="select select-secondary select-bordered select-md"
                 value={amount}
                 onChange={handleAmount}
@@ -130,4 +129,5 @@ function SingleProduct() {
   );
 }
 
+SingleProduct.loader = loader;
 export default SingleProduct;

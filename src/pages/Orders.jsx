@@ -1,14 +1,9 @@
 import { redirect, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import { customFetch } from "../utils";
-import {
-  ComplexPagination,
-  OrdersList,
-  PaginationContainer,
-  SectionTitle,
-} from "../components";
+import { ComplexPagination, OrdersList, SectionTitle } from "../components";
 
-export const ordersQuery = (params, user) => {
+const ordersQuery = (params, user) => {
   return {
     queryKey: [
       "orders",
@@ -25,7 +20,7 @@ export const ordersQuery = (params, user) => {
   };
 };
 
-export const ordersLoader =
+const loader =
   (store, queryClient) =>
   async ({ request }) => {
     const user = store.getState().userState.user;
@@ -55,7 +50,8 @@ export const ordersLoader =
       return null;
     }
   };
-const Orders = () => {
+
+function Orders() {
   const { meta } = useLoaderData();
   if (meta.pagination.total < 1) {
     return <SectionTitle text="Please make an order" />;
@@ -67,5 +63,7 @@ const Orders = () => {
       <ComplexPagination />
     </>
   );
-};
+}
+
+Orders.loader = loader;
 export default Orders;

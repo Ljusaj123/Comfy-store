@@ -1,11 +1,12 @@
 import { FormInput, SubmitBtn } from "../components";
 import { Form, redirect, Link } from "react-router-dom";
-
 import { customFetch } from "../utils";
 import { toast } from "react-toastify";
-export const registerAction = async ({ request }) => {
+
+const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
+
   try {
     await customFetch.post("/auth/local/register", data);
     toast.success("account created successfully");
@@ -28,21 +29,9 @@ function Register() {
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
       >
         <h4 className="text-center text-3xl font-bold">Register</h4>
-        <FormInput
-          type="text"
-          label="Username"
-          name="username"
-        />
-        <FormInput
-          type="email"
-          label="Email"
-          name="email"
-        />
-        <FormInput
-          type="password"
-          label="Password"
-          name="password"
-        />
+        <FormInput type="text" label="Username" name="username" />
+        <FormInput type="email" label="Email" name="email" />
+        <FormInput type="password" label="Password" name="password" />
         <div className="mt-4">
           <SubmitBtn text="Register" />
         </div>
@@ -60,4 +49,5 @@ function Register() {
   );
 }
 
+Register.action = action;
 export default Register;

@@ -25,7 +25,7 @@ const allProductsQuery = (queryParams) => {
   };
 };
 
-export const productsLoader =
+const loader =
   (queryClient) =>
   async ({ request }) => {
     const params = Object.fromEntries([
@@ -49,4 +49,5 @@ function Products() {
   );
 }
 
+Products.loader = loader;
 export default Products;

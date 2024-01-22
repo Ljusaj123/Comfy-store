@@ -14,15 +14,16 @@ import {
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ErrorElement } from "./components";
+
 import { landingLoader } from "./pages/Landing.jsx";
 import { singleProductLoader } from "./pages/SingleProduct.jsx";
 import { productsLoader } from "./pages/Products.jsx";
-import { checkoutLoader } from "./pages/Checkout.jsx";
-import { checkoutAction } from "./components/CheckoutForm";
 import { ordersLoader } from "./pages/Orders";
 
+import { checkoutAction } from "./components/CheckoutForm";
 import { registerAction } from "./pages/Register.jsx";
 import { loginAction } from "./pages/Login.jsx";
+
 import { store } from "./store";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -45,20 +46,20 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-        loader: landingLoader(queryClient),
+        loader: Landing.loader(queryClient),
         errorElement: <ErrorElement />,
       },
       {
         path: "products",
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: productsLoader(queryClient),
+        loader: productsLoader.loader(queryClient),
       },
       {
         path: "products/:id",
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
-        loader: singleProductLoader(queryClient),
+        loader: SingleProduct.loader(queryClient),
       },
       {
         path: "about",
@@ -73,13 +74,13 @@ const router = createBrowserRouter([
         path: "checkout",
         element: <Checkout />,
         errorElement: <ErrorElement />,
-        loader: checkoutLoader(store),
+        loader: Checkout.loader(store),
         action: checkoutAction(store, queryClient),
       },
       {
         path: "orders",
         element: <Orders />,
-        loader: ordersLoader(store, queryClient),
+        loader: Orders.loader(store, queryClient),
       },
     ],
   },
@@ -87,13 +88,13 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
     errorElement: <Error />,
-    action: loginAction(store),
+    action: Login.action(store),
   },
   {
     path: "/register",
     element: <Register />,
     errorElement: <Error />,
-    action: registerAction,
+    action: Register.action,
   },
 ]);
 
