@@ -5,7 +5,7 @@ import NavLinks from "./NavLinks";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../features/user/userSlice";
 
-function Navbar() {
+const Navbar = () => {
   const dispatch = useDispatch();
   const handleTheme = () => {
     dispatch(toggleTheme());
@@ -59,6 +59,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

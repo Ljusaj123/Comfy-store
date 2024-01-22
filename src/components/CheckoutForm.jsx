@@ -1,12 +1,10 @@
-import { Form } from "react-router-dom";
-import FormInput from "./FormInput";
-import SubmitBtn from "./SubmitBtn";
+import { Form, redirect } from "react-router-dom";
+import { FormInput, SubmitBtn } from "./form";
 import { customFetch, formatPrice } from "../utils";
 import { toast } from "react-toastify";
 import { clearCart } from "../features/cart/cartSlice";
-import { redirect } from "react-router-dom";
 
-export const checkoutAction =
+const action =
   (store, queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
@@ -47,7 +45,7 @@ export const checkoutAction =
     }
   };
 
-function CheckoutForm() {
+const CheckoutForm = () => {
   return (
     <Form method="POSt" className="flex flex-col gap-y-4">
       <h4 className="font-medium text-xl">Shipping Information</h4>
@@ -58,6 +56,7 @@ function CheckoutForm() {
       </div>
     </Form>
   );
-}
+};
 
+CheckoutForm.action = action;
 export default CheckoutForm;

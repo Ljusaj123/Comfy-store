@@ -1,5 +1,10 @@
-export { default as FormInput } from "./FormInput.jsx";
-export { default as SubmitBtn } from "./SubmitBtn.jsx";
+export {
+  FormInput,
+  FormRange,
+  FormSelect,
+  FormCheckbox,
+  SubmitBtn,
+} from "./form";
 export { default as Header } from "./Header.jsx";
 export { default as Navbar } from "./Navbar.jsx";
 export { default as NavLinks } from "./NavLinks.jsx";
@@ -16,3 +21,4 @@ export { default as SectionTitle } from "./SectionTitle.jsx";
 export { default as CheckoutForm } from "./CheckoutForm.jsx";
 export { default as OrdersList } from "./OrdersList.jsx";
 export { default as ComplexPagination } from "./ComplexPagination.jsx";
+export { default as FeaturedProducts } from "./FeaturedProducts.jsx";

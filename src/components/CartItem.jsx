@@ -2,7 +2,7 @@ import { formatPrice } from "../utils";
 import { removeItem, editItem } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
-function CartItem({ cartItem }) {
+const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
 
   const removeItemFromTheCart = () => {
@@ -41,7 +41,7 @@ function CartItem({ cartItem }) {
           <label htmlFor="amount" className="label p-0">
             <span className="label-text">Amount</span>
           </label>
-          <select
+          <select // change this select
             name="amount"
             id="amount"
             className="mt-2 select select-base select-bordered select-xs"
@@ -65,6 +65,6 @@ function CartItem({ cartItem }) {
       <p className="font-medium sm:ml-auto">{formatPrice(price)}</p>
     </article>
   );
-}
+};
 
 export default CartItem;

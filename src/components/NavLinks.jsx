@@ -9,8 +9,7 @@ const links = [
   { id: 5, url: "checkout", text: "checkout" },
   { id: 6, url: "orders", text: "orders" },
 ];
-
-export default function NavLinks() {
+const NavLinks = () => {
   const user = useSelector((state) => state.userState.user);
   const handleClick = () => {
     const elem = document.activeElement;
@@ -33,4 +32,6 @@ export default function NavLinks() {
       })}
     </>
   );
-}
+};
+
+export default NavLinks;

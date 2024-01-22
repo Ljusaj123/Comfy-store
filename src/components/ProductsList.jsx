@@ -1,7 +1,7 @@
 import { useLoaderData, Link } from "react-router-dom";
 import { formatPrice } from "../utils";
 
-function ProductsList() {
+const ProductsList = () => {
   const { products } = useLoaderData();
 
   return (
@@ -38,6 +38,6 @@ function ProductsList() {
       })}
     </div>
   );
-}
+};
 
 export default ProductsList;

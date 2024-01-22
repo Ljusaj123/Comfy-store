@@ -4,7 +4,7 @@ import ProductsGrid from "./ProductsGrid";
 import ProductsList from "./ProductsList";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 
-function ProductsContainer() {
+const ProductsContainer = () => {
   const { meta } = useLoaderData();
 
   const totalProducts = meta.pagination.total;
@@ -52,6 +52,6 @@ function ProductsContainer() {
       </div>
     </>
   );
-}
+};
 
 export default ProductsContainer;

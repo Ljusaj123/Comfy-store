@@ -1,5 +1,6 @@
-import { formatPrice } from "../utils";
+import { formatPrice } from "../../utils";
 import { useState } from "react";
+
 const FormRange = ({ label, name, size, price }) => {
   const step = 1000;
   const maxPrice = 100000;

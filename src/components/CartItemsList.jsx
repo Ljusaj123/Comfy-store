@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 
-function CartItemsList() {
+const CartItemsList = () => {
   const cartItems = useSelector((state) => state.cartState.cartItems);
   return (
     <div>
@@ -10,6 +10,6 @@ function CartItemsList() {
       })}
     </div>
   );
-}
+};
 
 export default CartItemsList;

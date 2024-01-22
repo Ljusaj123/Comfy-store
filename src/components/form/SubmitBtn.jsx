@@ -1,7 +1,6 @@
-import React from "react";
 import { useNavigation } from "react-router-dom";
 
-function SubmitBtn({ text }) {
+const SubmitBtn = ({ text }) => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
@@ -21,6 +20,6 @@ function SubmitBtn({ text }) {
       )}
     </button>
   );
-}
+};
 
 export default SubmitBtn;

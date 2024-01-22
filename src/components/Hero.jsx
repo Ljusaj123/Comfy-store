@@ -6,7 +6,7 @@ import hero4 from "../assets/hero4.webp";
 
 const carouselImages = [hero1, hero2, hero3, hero4];
 
-function Hero() {
+const Hero = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-24 items-center">
       <div>
@@ -39,6 +39,6 @@ function Hero() {
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

@@ -14,15 +14,7 @@ import {
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ErrorElement } from "./components";
-
-import { landingLoader } from "./pages/Landing.jsx";
-import { singleProductLoader } from "./pages/SingleProduct.jsx";
-import { productsLoader } from "./pages/Products.jsx";
-import { ordersLoader } from "./pages/Orders";
-
-import { checkoutAction } from "./components/CheckoutForm";
-import { registerAction } from "./pages/Register.jsx";
-import { loginAction } from "./pages/Login.jsx";
+import { CheckoutForm } from "./components";
 
 import { store } from "./store";
 
@@ -53,7 +45,7 @@ const router = createBrowserRouter([
         path: "products",
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: productsLoader.loader(queryClient),
+        loader: Products.loader(queryClient),
       },
       {
         path: "products/:id",
@@ -75,7 +67,7 @@ const router = createBrowserRouter([
         element: <Checkout />,
         errorElement: <ErrorElement />,
         loader: Checkout.loader(store),
-        action: checkoutAction(store, queryClient),
+        action: CheckoutForm.action(store, queryClient),
       },
       {
         path: "orders",

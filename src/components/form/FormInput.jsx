@@ -1,6 +1,4 @@
-import React from "react";
-
-export default function FormInput({ label, name, type, defaultValue, size }) {
+const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
     <div className="form-control">
       <label className="label capitalize">
@@ -13,7 +11,10 @@ export default function FormInput({ label, name, type, defaultValue, size }) {
         placeholder="Type here"
         defaultValue={defaultValue}
         className={`input input-bordered ${size}`}
+        autoComplete="false"
       />
     </div>
   );
-}
+};
+
+export default FormInput;

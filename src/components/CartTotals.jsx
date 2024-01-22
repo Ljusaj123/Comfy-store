@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { formatPrice } from "../utils";
 
-function CartTotals() {
+const CartTotals = () => {
   const { cartTotal, shipping, tax, orderTotal } = useSelector(
     (state) => state.cartState
   );
@@ -27,6 +27,6 @@ function CartTotals() {
       </div>
     </div>
   );
-}
+};
 
 export default CartTotals;
