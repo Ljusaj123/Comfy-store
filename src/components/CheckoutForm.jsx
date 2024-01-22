@@ -7,7 +7,7 @@ import { clearCart } from "../features/cart/cartSlice";
 import { redirect } from "react-router-dom";
 
 export const checkoutAction =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
@@ -30,6 +30,7 @@ export const checkoutAction =
         { data: info },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
+      queryClient.removeQueries(["orders"]);
 
       store.dispatch(clearCart());
       toast.success("order placed successfully");

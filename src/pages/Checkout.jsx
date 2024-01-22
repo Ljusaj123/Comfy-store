@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const checkoutLoader = (store) => () => {
+export const checkoutLoader = (store, queryClient) => () => {
   const user = store.getState().userState.user;
 
   if (!user) {
