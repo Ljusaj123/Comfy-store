@@ -26,7 +26,6 @@ Project is used from tutorial: [React tutorial and projects course](https://www.
 - See all orders
 - Checkout order
 
-
 ## Live demo
 
-Link: []()
+Link: [https://resplendent-raindrop-776278.netlify.app/](https://resplendent-raindrop-776278.netlify.app/)
