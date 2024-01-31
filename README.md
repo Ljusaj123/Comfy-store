@@ -29,3 +29,13 @@ Project is used from tutorial: [React tutorial and projects course](https://www.
 ## Live demo
 
 Link: [https://resplendent-raindrop-776278.netlify.app/](https://resplendent-raindrop-776278.netlify.app/)
+
+## Screenshots
+
+### Home page
+
+## ![Home](./public/home.png)
+
+### Products page
+
+## ![Products](./public/products.png)

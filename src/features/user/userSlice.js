@@ -35,7 +35,7 @@ const userSlice = createSlice({
       localStorage.removeItem("user");
       toast.success("User successfuly logout");
     },
-    toggleTheme: (state, action) => {
+    toggleTheme: (state) => {
       const { winter, dracula } = themes;
       state.theme = state.theme === winter ? dracula : winter;
       document.documentElement.setAttribute("data-theme", state.theme);

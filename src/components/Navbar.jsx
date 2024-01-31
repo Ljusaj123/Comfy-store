@@ -44,8 +44,8 @@ const Navbar = () => {
         <div className="navbar-end">
           <label className="swap swap-rotate ">
             <input type="checkbox" onChange={handleTheme} />
-            <BsSunFill className="swap-on h-4 w-4" />
-            <BsMoonFill className="swap-off h-4 w-4" />
+            <BsSunFill className="swap-off h-4 w-4" />
+            <BsMoonFill className="swap-on h-4 w-4" />
           </label>
           <NavLink to="/cart" className="btn btn-ghost btn-circle btn-md ml-4">
             <div className="indicator">
