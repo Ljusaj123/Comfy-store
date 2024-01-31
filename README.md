@@ -12,6 +12,8 @@
 - Axios
 - React Router
 - Toastify
+- Tailwind
+- Daisy UI
 
 ## Project
 
@@ -20,11 +22,17 @@ Project is used from tutorial: [React tutorial and projects course](https://www.
 ### Users should be able to
 
 - Login and register or login as guest user
-- Search for product and filter them
+- Search for products and filter them
 - Set products in cart
-- Get all products from cart
+- Get all products from a cart
 - See all orders
 - Checkout order
+
+## Run The App Locally
+
+```sh
+npm run install && npm run dev
+```
 
 ## Live demo
 
