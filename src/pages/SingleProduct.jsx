@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../features/cart/cartSlice";
+import { IncDec } from "../components/form";
 
 const singleProductQuery = (id) => {
   return {
@@ -14,13 +15,13 @@ const singleProductQuery = (id) => {
 
 const loader =
   (queryClient) =>
-  async ({ params }) => {
-    const response = await queryClient.ensureQueryData(
-      singleProductQuery(params.id)
-    );
-    const product = response.data.data;
-    return { product };
-  };
+    async ({ params }) => {
+      const response = await queryClient.ensureQueryData(
+        singleProductQuery(params.id)
+      );
+      const product = response.data.data;
+      return { product };
+    };
 
 function SingleProduct() {
   const { product } = useLoaderData();
@@ -29,10 +30,6 @@ function SingleProduct() {
   const dollarsPrice = formatPrice(price);
   const [amount, setAmount] = useState(1);
   const [productColor, setProductColor] = useState(colors[0]);
-
-  const handleAmount = (e) => {
-    setAmount(parseInt(e.target.value));
-  };
 
   const cartProduct = {
     cartID: product.id + productColor,
@@ -92,9 +89,8 @@ function SingleProduct() {
                   <button
                     key={color}
                     type="button"
-                    className={`badge w-6 h-6 mr-2 ${
-                      color === productColor && "border-2 border-secondary"
-                    }`}
+                    className={`badge w-6 h-6 mr-2 ${color === productColor && "border-2 border-secondary"
+                      }`}
                     style={{ backgroundColor: color }}
                     onClick={() => setProductColor(color)}
                   ></button>
@@ -107,15 +103,7 @@ function SingleProduct() {
                   amount
                 </h4>
               </label>
-              <select // prominit
-                className="select select-secondary select-bordered select-md"
-                value={amount}
-                onChange={handleAmount}
-              >
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-              </select>
+              <IncDec amount={amount} setAmount={setAmount} />
             </div>
             <div className="mt-10 ">
               <button className="btn btn-secondary btn-md" onClick={addToCart}>

@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from "react-router-dom";
-import { Header, Navbar, Loading } from "../components";
+import { Header, Navbar, Loading, Footer } from "../components";
 
 function HomeLayout() {
   const navigation = useNavigation();
@@ -13,10 +13,11 @@ function HomeLayout() {
       {isPageLoading ? (
         <Loading />
       ) : (
-        <section className="align-element py-20">
+        <section className="align-element py-20 min-h-screen">
           <Outlet />
         </section>
       )}
+      <Footer />
     </>
   );
 }

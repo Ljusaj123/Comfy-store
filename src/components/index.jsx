@@ -21,3 +21,4 @@ export { default as CheckoutForm } from "./CheckoutForm.jsx";
 export { default as OrdersList } from "./OrdersList.jsx";
 export { default as Pagination } from "./Pagination.jsx";
 export { default as FeaturedProducts } from "./FeaturedProducts.jsx";
+export { default as Footer } from "./Footer.jsx";

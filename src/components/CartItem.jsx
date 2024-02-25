@@ -1,20 +1,30 @@
 import { formatPrice } from "../utils";
 import { removeItem, editItem } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import { IncDec } from "./form";
+import { useEffect, useState, useRef } from "react";
 
 const CartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
+  const isInitialRender = useRef(true);
+
+  const { cartID, title, price, image, amount, company, productColor } =
+    cartItem;
+
+  const [count, setCount] = useState(amount);
 
   const removeItemFromTheCart = () => {
     dispatch(removeItem({ cartID }));
   };
 
-  const handleAmount = (e) => {
-    dispatch(editItem({ cartID, amount: parseInt(e.target.value) }));
-  };
+  useEffect(() => {
+    if (!isInitialRender.current) {
+      dispatch(editItem({ cartID, amount: count }));
 
-  const { cartID, title, price, image, amount, company, productColor } =
-    cartItem;
+    } else {
+      isInitialRender.current = false;
+    }
+  }, [cartID, count, dispatch])
 
   return (
     <article className="mb-12 flex flex-col gap-y-4 sm:flex-row flex-wrap border-b border-base-300 pb-6 last:border-b-0">
@@ -41,17 +51,7 @@ const CartItem = ({ cartItem }) => {
           <label htmlFor="amount" className="label p-0">
             <span className="label-text">Amount</span>
           </label>
-          <select // change this select
-            name="amount"
-            id="amount"
-            className="mt-2 select select-base select-bordered select-xs"
-            value={amount}
-            onChange={handleAmount}
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-          </select>
+          <IncDec amount={count} setAmount={setCount} />
         </div>
         <button
           className="mt-2 link link-primary link-hover text-sm capitalize"
