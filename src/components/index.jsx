@@ -4,6 +4,7 @@ export {
   FormSelect,
   FormCheckbox,
   SubmitBtn,
+  IncDec
 } from "./form";
 export { default as Header } from "./Header.jsx";
 export { default as Navbar } from "./Navbar.jsx";

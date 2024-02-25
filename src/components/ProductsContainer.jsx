@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import ProductsGrid from "./ProductsGrid";
-import ProductsList from "./ProductsList";
+import ProductsLayout from "./ProductsLayout";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 
 const ProductsContainer = () => {
@@ -11,11 +10,10 @@ const ProductsContainer = () => {
   const [layout, setLayout] = useState("grid");
 
   const setActiveStyles = (pattern) => {
-    return `text-xl btn btn-circle btn-sm ${
-      pattern === layout
-        ? "btn-primary text-primary-content"
-        : "btn-ghost text-base-content"
-    }`;
+    return `text-xl btn btn-circle btn-sm ${pattern === layout
+      ? "btn-primary text-primary-content"
+      : "btn-ghost text-base-content"
+      }`;
   };
   return (
     <>
@@ -45,9 +43,9 @@ const ProductsContainer = () => {
             Sorry, no products matched your search...
           </h5>
         ) : layout === "grid" ? (
-          <ProductsGrid />
+          <ProductsLayout layoutType={layout} />
         ) : (
-          <ProductsList />
+          <ProductsLayout layoutType={layout} />
         )}
       </div>
     </>

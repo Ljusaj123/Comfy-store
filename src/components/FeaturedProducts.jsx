@@ -1,11 +1,11 @@
 import SectionTitle from "./SectionTitle";
-import ProductsGrid from "./ProductsGrid";
+import ProductsLayout from "./ProductsLayout";
 
 const FeaturedProducts = () => {
   return (
     <div className="pt-24">
       <SectionTitle text="featured products" />
-      <ProductsGrid />
+      <ProductsLayout layoutType="grid" />
     </div>
   );
 };
